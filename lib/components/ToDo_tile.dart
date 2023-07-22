@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:todolist/size_config.dart';
 
 class ToDoTile extends StatelessWidget {
   final String taskName;
@@ -18,7 +19,7 @@ class ToDoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 25, left: 25, top: 25,),
+      padding: const EdgeInsets.only(right: 20, left: 20, top: 20,),
       child: Slidable(
         endActionPane: ActionPane(
           motion: StretchMotion(),
@@ -31,7 +32,7 @@ class ToDoTile extends StatelessWidget {
           ],
         ),
         child: Container(
-          padding: EdgeInsets.all(24),
+          padding: EdgeInsets.all(15),
           decoration: BoxDecoration(
             // color: Color(0xFFFF90D0),
             gradient: LinearGradient(
@@ -41,18 +42,18 @@ class ToDoTile extends StatelessWidget {
             ),
             borderRadius: BorderRadius.all(Radius.circular(12)),
             border: Border.all(
-            color: Color(0xFF5BB1EF),
-            width: 1.5,
+            color: Colors.purple,
+            width: 1.0,
           ),
           ),
           child: Row(
             children: [
               Container(
-                height:50 ,
-                width: 5,
+                height:40 ,
+                width: 3,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(12)),
-                  color: Color(0xFF5BB1EF)
+                  color: Colors.purple
                 ),
               ),
               Checkbox(
@@ -61,10 +62,13 @@ class ToDoTile extends StatelessWidget {
                 activeColor: Color(0xFFCA6FFF),
                 checkColor: Colors.white,
               ),
-              Text(taskName, style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.black,
-                  decoration: taskCompleted? TextDecoration.lineThrough : TextDecoration.none),
+              Container(
+                width: getProportionateScreenWidth(240),
+                child: Text(taskName, style: TextStyle(
+                    fontSize: 19,
+                    color: Colors.black,
+                    decoration: taskCompleted? TextDecoration.lineThrough : TextDecoration.none),
+                ),
               ),
             ],
           ),

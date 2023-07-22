@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todolist/screens/first_page/components/body.dart';
+import 'package:todolist/size_config.dart';
 
 class FirstPage extends StatelessWidget {
   static String routeName="/";
@@ -8,6 +9,7 @@ class FirstPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       body: Body(),
     );
